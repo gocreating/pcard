@@ -8,6 +8,7 @@ sftp-configuration.json
 *.pub
 *.pem
 *.ppk
+/src/server/credentials
 
 # Log
 *.log
