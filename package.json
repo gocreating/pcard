@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "scripts": {
+    "test": "npm run jscs",
+    "jscs": "jscs ./src --config=./.jscsrc --verbose",
+    "jscs-auto-fix": "jscs ./src --config=./.jscsrc --verbose --fix",
     "clean": "gulp clean",
     "build": "gulp build",
     "start": "node build/server/server.js"
