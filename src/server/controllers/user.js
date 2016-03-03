@@ -24,16 +24,29 @@ export default {
       password: req.body.password,
     });
     user.auth((err, isPass, user) => {
-      if (err) {
+      if (err || !isPass) {
         return res.json({
           isError: true,
         });
       }
+      let userObj = user.toObject();
+      let userToken = user.toBearerToken();
+      delete userObj.password;
+      delete userObj.__v;
+      res.cookie('access_token', userToken);
       res.json({
         isError: false,
-        isPass: isPass,
-        user: user,
+        data: {
+          bearerToken: userToken,
+          user: userObj,
+        },
       });
+    });
+  },
+  logout: (req, res) => {
+    res.clearCookie('access_token');
+    res.json({
+      isError: false,
     });
   },
 };

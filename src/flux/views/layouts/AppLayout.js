@@ -69,7 +69,7 @@ export default class AppLayout extends React.Component {
                   <li><a href="/user/login">Login</a></li>
                   <li><a href="/user/register">Register</a></li>
                   <li role="separator" className="divider"></li>
-                  <li><a href="/api/user/logout">Logout</a></li>
+                  <li><a href="/user/logout">Logout</a></li>
                 </ul>
               </li>
             </ul>

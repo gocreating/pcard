@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+import jwt from 'jwt-simple';
+import moment from 'moment';
 import { isEmail } from 'validator';
 import Email from './schemas/Email';
+import bearerToken from '../credentials/bearerToken';
 
 const encodePassword = (rawPassword) => {
   const crypto = require('crypto');
@@ -35,10 +38,25 @@ User.methods.auth = function(cb) {
       if (err) {
         cb(err);
       }
-      user = user.toObject();
-      delete user.password;
       cb(null, !!user, user);
     });
+};
+
+User.methods.toBearerToken = function(cb) {
+  const token = jwt.encode({
+    user: {
+      id: this._id,
+      name: this.name,
+      email: this.email,
+    },
+    expiration: moment()
+      .add(
+        bearerToken.expiration.split(' ')[0],
+        bearerToken.expiration.split(' ')[1])
+      .valueOf(),
+  }, bearerToken.secret);
+
+  return token;
 };
 
 export default mongoose.model('User', User);
