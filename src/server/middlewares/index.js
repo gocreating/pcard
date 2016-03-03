@@ -35,6 +35,7 @@ import cookieParser from 'cookie-parser';
 export default ({ app }) => {
   // inject livereload feature
   if (process.env.NODE_ENV === 'development') {
+    console.log('using livereload');
     const config = require('../../../config/webpack.config.dev');
     const compiler = webpack(config);
 
