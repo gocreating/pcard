@@ -33,7 +33,7 @@ import cookieParser from 'cookie-parser';
 
 export default ({ app }) => {
   // inject livereload feature
-  if (process.env.NODE_ENV === 'development') {
+  if (app.get('env') === 'development') {
     console.log('using livereload');
     const webpack = require('webpack');
     const config = require('../../../config/webpack.config.dev');
@@ -62,6 +62,7 @@ export default ({ app }) => {
     '\x1b[0m'
   ));
 
+  // static files
   app.use(express.static(
     path.join(__dirname, '../../public')));
 

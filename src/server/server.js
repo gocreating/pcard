@@ -7,18 +7,22 @@ import middlewares from './middlewares';
 import routes from './routes';
 
 // connect to mongolab
-mongoose.connect(mongolab);
-
-const app = express();
-app.set('env', process.env.NODE_ENV);
-middlewares({ app });
-routes({ app });
-
-// launch server
-app.listen(process.env.PORT || process.argv[2] || 3000, (err) => {
+mongoose.connect(mongolab, (err) => {
   if (err) {
-    console.log(err);
-    return;
+    throw err;
   }
-  console.log('Listening at port 3000');
+
+  const app = express();
+  app.set('env', process.env.NODE_ENV);
+  middlewares({ app });
+  routes({ app });
+
+  // launch server
+  app.listen(process.env.PORT || process.argv[2] || 3000, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log('Listening at port 3000');
+  });
 });
