@@ -1,6 +1,5 @@
 import path from 'path';
 import express from 'express';
-import webpack from 'webpack';
 import favicon from 'serve-favicon';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
@@ -36,6 +35,7 @@ export default ({ app }) => {
   // inject livereload feature
   if (process.env.NODE_ENV === 'development') {
     console.log('using livereload');
+    const webpack = require('webpack');
     const config = require('../../../config/webpack.config.dev');
     const compiler = webpack(config);
 

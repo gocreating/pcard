@@ -15,6 +15,7 @@ sftp-configuration.json
 
 # Build files
 /build
+/.deploy
 
 # Others
 .DS_Store
