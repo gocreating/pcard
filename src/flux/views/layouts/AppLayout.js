@@ -35,7 +35,7 @@ export default class AppLayout extends React.Component {
               type="button"
               className="navbar-toggle collapsed"
               data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1"
+              data-target="#navbar"
               aria-expanded="false">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
@@ -45,7 +45,7 @@ export default class AppLayout extends React.Component {
             <a className="navbar-brand" href="/">Pcard</a>
           </div>
 
-          <div className="collapse navbar-collapse">
+          <div className="collapse navbar-collapse" id="navbar">
             <ul className="nav navbar-nav">
               <li className="active">
                 <a href="#">Link <span className="sr-only">(current)</span></a>
