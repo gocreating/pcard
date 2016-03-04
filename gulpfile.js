@@ -51,7 +51,10 @@ function _babelStream(src, dest, config) {
         title: 'babel fail',
         message: '<%= error.message %>',
       }))
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write({
+      includeContent: false,
+      sourceRoot: './src',
+    }))
     .pipe(gulp.dest(dest));
 }
 
