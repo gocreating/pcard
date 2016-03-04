@@ -68,7 +68,7 @@ function _webpackTask(config, cb) {
       return cb(jsonStats.errors);
     }
     if (jsonStats.warnings.length > 0) {
-      gutil.warn(jsonStats.warnings);
+      gutil.log(gutil.colors.yellow(jsonStats.warnings));
     }
     cb();
   });
