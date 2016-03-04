@@ -3,9 +3,9 @@ import { Route, IndexRoute } from 'react-router';
 
 import AppLayout from './views/layouts/AppLayout';
 import HomePage from './views/pages/HomePage';
-import RegisterPage from './views/pages/RegisterPage';
-import LoginPage from './views/pages/LoginPage';
-import LogoutPage from './views/pages/LogoutPage';
+import RegisterPage from './views/pages/user/RegisterPage';
+import LoginPage from './views/pages/user/LoginPage';
+import LogoutPage from './views/pages/user/LogoutPage';
 import ProfileNewPage from './views/pages/profile/NewPage';
 import NotFoundPage from './views/pages/NotFoundPage';
 

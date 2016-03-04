@@ -1,8 +1,8 @@
 import React from 'react';
-import apiRequest from '../../utils/apiRequest';
-import Input from '../components/Input';
+import apiRequest from '../../../utils/apiRequest';
+import Input from '../../components/Input';
 
-export default class LoginPage extends React.Component {
+export default class RegisterPage extends React.Component {
   constructor(props) {
     super(props);
     this._handleSubmit = ::this._handleSubmit;
@@ -12,16 +12,17 @@ export default class LoginPage extends React.Component {
     e.preventDefault();
     apiRequest({
       method: 'POST',
-      url: '/api/user/login',
+      url: '/api/user',
       data: {
+        name: this.refs.name.getValue(),
         email: this.refs.email.getValue(),
         password: this.refs.password.getValue(),
       },
       succ: (res) => {
-        location.href = '/';
+        location.href = '/user/login';
       },
       fail: (res) => {
-        console.log('login fail');
+        console.log('register fail');
       },
     });
   }
@@ -29,12 +30,17 @@ export default class LoginPage extends React.Component {
   render() {
     return <div className="container">
       <div className="page-header">
-        <h1>Login</h1>
+        <h1>Register</h1>
       </div>
 
       <form
         className="form-horizontal"
         onSubmit={this._handleSubmit}>
+
+        <Input
+          ref="name"
+          label="Name"
+          placeholder="name" />
 
         <Input
           ref="email"
@@ -49,7 +55,7 @@ export default class LoginPage extends React.Component {
 
         <div className="form-group">
           <div className="col-sm-offset-2 col-sm-10">
-            <button type="submit" className="btn btn-default">Login</button>
+            <button type="submit" className="btn btn-default">Register</button>
           </div>
         </div>
       </form>

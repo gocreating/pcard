@@ -1,5 +1,5 @@
 import React from 'react';
-import apiRequest from '../../utils/apiRequest';
+import apiRequest from '../../../utils/apiRequest';
 
 export default class LogoutPage extends React.Component {
   componentWillMount() {
