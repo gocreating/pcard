@@ -42,7 +42,9 @@ npm start
 
 ## Deploy to Heroku
 
+For the first time:
 ```
+rm -rf .deploy
 mkdir .deploy
 cp ./config/Procfile .deploy/
 cp ./package.json .deploy/
@@ -51,8 +53,22 @@ cd .deploy
 git init
 git add . -A
 git commit -m "Deploy"
-heroku create
+heroku create # heroku git:remote -a profile-card
+git push heroku master -f
+cd ..
+
+```
+
+For the following time:
+```
+cd .deploy
+rm -f ./package.json
+rm -rf ./build
+cp ../package.json ./
+cp -r ../build ./
+git add . -A
+git commit -m "Deploy upgrade"
 git push heroku master
 cd ..
-rm -rf .deploy
+
 ```
