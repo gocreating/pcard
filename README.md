@@ -16,10 +16,18 @@ npm install -g jscs
 npm install
 ```
 
-## Build
+## Build & Run
 
+For development:
 ```
 gulp
+gulp serve
+```
+
+For production:
+```
+gulp build:production
+npm start
 ```
 
 ## Test
@@ -28,19 +36,7 @@ gulp
 npm test
 ```
 
-## Run
-
-Run in development environment:
-```
-gulp serve
-```
-
-Run in production environment:
-```
-npm start
-```
-
-## Deploy to Heroku
+## Deploy on Heroku
 
 For the first time:
 ```
