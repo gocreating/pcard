@@ -1,8 +1,7 @@
 import mongoose from 'mongoose';
 import jwt from 'jwt-simple';
 import moment from 'moment';
-import { isEmail } from 'validator';
-import Email from './schemas/Email';
+import { Email } from './types';
 import bearerToken from '../credentials/bearerToken';
 
 const encodePassword = (rawPassword) => {
@@ -19,6 +18,8 @@ const encodePassword = (rawPassword) => {
 };
 
 let User = new mongoose.Schema({
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
   name: { type: String, required: true },
   email: Email,
   password: {

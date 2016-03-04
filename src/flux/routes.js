@@ -6,6 +6,7 @@ import HomePage from './views/pages/HomePage';
 import RegisterPage from './views/pages/RegisterPage';
 import LoginPage from './views/pages/LoginPage';
 import LogoutPage from './views/pages/LogoutPage';
+import ProfileNewPage from './views/pages/profile/NewPage';
 import NotFoundPage from './views/pages/NotFoundPage';
 
 export default (
@@ -14,6 +15,7 @@ export default (
     <Route path="user/register" component={RegisterPage} />
     <Route path="user/login" component={LoginPage} />
     <Route path="user/logout" component={LogoutPage} />
+    <Route path="profile/new" component={ProfileNewPage} />
     <Route path="*" component={NotFoundPage} />
   </Route>
 );

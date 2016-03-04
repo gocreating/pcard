@@ -1,13 +1,10 @@
 import mongoose from 'mongoose';
+import Profile from './schemas/Profile';
 
 export default mongoose.model('Profile', new mongoose.Schema({
-  basic: {
-    name: { type: String, required: true },
-    email: [String],
-  },
-  addition: {
-    ip: String,
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
-  },
+  author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  createdAt: { type: Date, default: Date.now, required: true  },
+  updatedAt: { type: Date, default: Date.now, required: true  },
+  isAuthor: { type: Boolean, default: false, required: true  },
+  value: Profile,
 }));

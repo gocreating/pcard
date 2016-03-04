@@ -12,6 +12,10 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/',
   },
+  externals: {
+    jquery: 'jQuery',
+    mongoose: 'mongoose',
+  },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({

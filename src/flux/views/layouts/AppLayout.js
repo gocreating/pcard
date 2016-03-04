@@ -50,7 +50,7 @@ export default class AppLayout extends React.Component {
               <li className="active">
                 <a href="#">Link <span className="sr-only">(current)</span></a>
               </li>
-              <li><a href="#">Link</a></li>
+              <li><a href="/profile/new">New Profile</a></li>
             </ul>
 
             <ul className="nav navbar-nav navbar-right">
