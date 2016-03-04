@@ -3,12 +3,8 @@ import alt from '../alt';
 class ProfileAction {
   constructor() {
     this.generateActions(
-      'sendTest'
+      'update'
     );
-  }
-
-  test() {
-    return this.sendTest();
   }
 }
 
