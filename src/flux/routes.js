@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
+import loginRequired from './utils/loginRequired';
 import AppLayout from './views/layouts/AppLayout';
 import HomePage from './views/pages/HomePage';
 import RegisterPage from './views/pages/user/RegisterPage';
@@ -15,7 +16,10 @@ export default (
     <Route path="user/register" component={RegisterPage} />
     <Route path="user/login" component={LoginPage} />
     <Route path="user/logout" component={LogoutPage} />
-    <Route path="profile/new" component={ProfileNewPage} />
+    <Route
+      path="profile/new"
+      component={ProfileNewPage}
+      onEnter={loginRequired} />
     <Route path="*" component={NotFoundPage} />
   </Route>
 );

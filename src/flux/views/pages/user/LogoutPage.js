@@ -7,6 +7,7 @@ export default class LogoutPage extends React.Component {
       method: 'GET',
       url: '/api/user/logout',
       succ: (res) => {
+        localStorage.removeItem('token');
         location.href = '/';
       },
       fail: (res) => {

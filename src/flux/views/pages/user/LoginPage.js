@@ -19,7 +19,13 @@ export default class LoginPage extends React.Component {
       },
       succ: (res) => {
         if (res.isPass) {
-          location.href = '/';
+          localStorage.setItem('token', res.data.bearerToken);
+          const { location } = this.props;
+          if (location.state && location.state.nextPathname) {
+            this.context.router.push(location.state.nextPathname);
+          } else {
+            this.context.router.push('/');
+          }
         } else {
           alert('wrong email or password');
         }
@@ -59,4 +65,8 @@ export default class LoginPage extends React.Component {
       </form>
     </div>;
   }
+};
+
+LoginPage.contextTypes = {
+  router: React.PropTypes.any.isRequired,
 };
