@@ -4,6 +4,8 @@ import favicon from 'serve-favicon';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
+import helperInjector from './helperInjector';
+import tokenParser from './tokenParser';
 
 (function addCustomMorganToken() {
   morgan.token('colorStatus', (req, res) => {
@@ -66,6 +68,9 @@ export default ({ app }) => {
   app.use(express.static(
     path.join(__dirname, '../../public')));
 
+  // inject helpers
+  app.use(helperInjector());
+
   // parse application/x-www-form-urlencoded
   app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -74,4 +79,7 @@ export default ({ app }) => {
 
   // cookie parser
   app.use(cookieParser());
+
+  // token parser
+  app.use(tokenParser());
 };

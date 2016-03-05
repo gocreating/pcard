@@ -8,6 +8,7 @@ export default function apiRequest(req) {
     if (!res.isError || (res.errors && res.errors.length === 0)) {
       req.succ(res);
     } else {
+      console.log(res.errors);
       req.fail(res);
     }
   })
