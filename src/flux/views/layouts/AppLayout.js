@@ -9,6 +9,19 @@ export default class AppLayout extends React.Component {
     this._renderMenu = ::this._renderMenu;
   }
 
+  getChildContext() {
+    const token = localStorage.getItem('token');
+    let user = {};
+    if (token !== null) {
+      user = JSON.parse(localStorage.getItem('user'));
+    }
+    return {
+      isAuth: token !== null,
+      token: token,
+      user: user,
+    };
+  }
+
   _renderHelmet() {
     return (
       <Helmet
@@ -28,6 +41,11 @@ export default class AppLayout extends React.Component {
   }
 
   _renderMenu() {
+    const {
+      isAuth,
+      user,
+    } = this.getChildContext();
+
     return (
       <nav className="navbar navbar-default navbar-static-top">
         <div className="container">
@@ -66,14 +84,25 @@ export default class AppLayout extends React.Component {
                   role="button"
                   aria-haspopup="true"
                   aria-expanded="false">
-                  User <span className="caret"></span>
+                  { !isAuth && 'User'}
+                  { isAuth && (user.name !== ''? user.name: user.email.value)}
+                  <span className="caret"></span>
                 </a>
-                <ul className="dropdown-menu">
-                  <li><Link to="/user/login">Login</Link></li>
-                  <li><Link to="/user/register">Register</Link></li>
-                  <li role="separator" className="divider"></li>
-                  <li><Link to="/user/logout">Logout</Link></li>
-                </ul>
+                { !isAuth &&
+                  <ul className="dropdown-menu">
+                    <li>
+                      <Link to="/user/login">Login</Link>
+                    </li>
+                    <li>
+                      <Link to="/user/register">Register</Link>
+                    </li>
+                  </ul>}
+                { isAuth &&
+                  <ul className="dropdown-menu">
+                    <li>
+                      <Link to="/user/logout">Logout</Link>
+                    </li>
+                  </ul>}
               </li>
             </ul>
           </div>
@@ -101,4 +130,10 @@ AppLayout.defaultProps = {
   styles: [
     'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
   ],
+};
+
+AppLayout.childContextTypes = {
+  isAuth: React.PropTypes.bool,
+  token: React.PropTypes.string,
+  user: React.PropTypes.object,
 };

@@ -20,7 +20,7 @@ const encodePassword = (rawPassword) => {
 let User = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
-  name: { type: String, required: true },
+  name: String,
   email: Email,
   password: {
     type: String,

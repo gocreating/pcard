@@ -20,6 +20,7 @@ export default class LoginPage extends React.Component {
       succ: (res) => {
         if (res.isPass) {
           localStorage.setItem('token', res.data.bearerToken);
+          localStorage.setItem('user', JSON.stringify(res.data.user));
           const { location } = this.props;
           if (location.state && location.state.nextPathname) {
             this.context.router.push(location.state.nextPathname);
