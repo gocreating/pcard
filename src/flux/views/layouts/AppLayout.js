@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 
 export default class AppLayout extends React.Component {
@@ -42,7 +43,7 @@ export default class AppLayout extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="/">Pcard</a>
+            <Link className="navbar-brand" to="/">Pcard</Link>
           </div>
 
           <div className="collapse navbar-collapse" id="navbar">
@@ -50,7 +51,9 @@ export default class AppLayout extends React.Component {
               <li className="active">
                 <a href="#">Link <span className="sr-only">(current)</span></a>
               </li>
-              <li><a href="/profile/new">New Profile</a></li>
+              <li>
+                <Link to="/profile/new">New Profile</Link>
+              </li>
             </ul>
 
             <ul className="nav navbar-nav navbar-right">
@@ -66,10 +69,10 @@ export default class AppLayout extends React.Component {
                   User <span className="caret"></span>
                 </a>
                 <ul className="dropdown-menu">
-                  <li><a href="/user/login">Login</a></li>
-                  <li><a href="/user/register">Register</a></li>
+                  <li><Link to="/user/login">Login</Link></li>
+                  <li><Link to="/user/register">Register</Link></li>
                   <li role="separator" className="divider"></li>
-                  <li><a href="/user/logout">Logout</a></li>
+                  <li><Link to="/user/logout">Logout</Link></li>
                 </ul>
               </li>
             </ul>
