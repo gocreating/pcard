@@ -9,7 +9,7 @@ export default class LogoutPage extends React.Component {
       succ: (res) => {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        location.href = '/';
+        this.context.router.push('/');
       },
       fail: (res) => {
         console.log('logout fail');
@@ -20,4 +20,8 @@ export default class LogoutPage extends React.Component {
   render() {
     return false;
   }
+};
+
+LogoutPage.contextTypes = {
+  router: React.PropTypes.any.isRequired,
 };
