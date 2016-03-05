@@ -3,6 +3,12 @@ export default function apiRequest(req) {
     method: req.method,
     url: req.url,
     data: req.data,
+    beforeSend: () => {
+      NProgress.start();
+    },
+    complete: () => {
+      NProgress.done();
+    },
   })
   .done(res => {
     if (!res.isError || (res.errors && res.errors.length === 0)) {
