@@ -23,9 +23,25 @@ class ProfileStore {
         },
       },
       // the actual flat profile value
-      profileValue: {},
-      currentProfileValue: {},
+      newProfile: {},
+      readProfile: {},
+      listSelfProfile: [],
     };
+  }
+
+  onListSelf() {
+    apiRequest({
+      method: 'GET',
+      url: `/api/profiles/self`,
+      succ: (res) => {
+        this.setState({
+          listSelfProfile: res.profiles,
+        });
+      },
+      fail: (res) => {
+        console.log('list self profile fail');
+      },
+    });
   }
 
   onRead(id) {
@@ -34,7 +50,7 @@ class ProfileStore {
       url: `/api/profile/${id}`,
       succ: (res) => {
         this.setState({
-          currentProfileValue: res.profile,
+          readProfile: res.profile,
         });
       },
       fail: (res) => {
@@ -45,20 +61,20 @@ class ProfileStore {
 
   onUpdate(newProfileValue) {
     this.setState({
-      profileValue: {
-        ...this.state.profileValue,
+      newProfile: {
+        ...this.state.newProfile,
         ...newProfileValue,
       },
     });
-    console.log('profileValue', this.state.profileValue);
+    console.log('newProfile', this.state.newProfile);
   }
 
-  onCreate([profileValue, cb]) {
+  onCreate([newProfile, cb]) {
     apiRequest({
       method: 'POST',
       url: '/api/profile',
       data: {
-        fields: JSON.stringify(profileValue),
+        fields: JSON.stringify(newProfile),
       },
       succ: (res) => {
         cb(res.profile);

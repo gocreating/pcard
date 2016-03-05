@@ -7,6 +7,7 @@ import HomePage from './views/pages/HomePage';
 import RegisterPage from './views/pages/user/RegisterPage';
 import LoginPage from './views/pages/user/LoginPage';
 import LogoutPage from './views/pages/user/LogoutPage';
+import ProfileListSelfPage from './views/pages/profile/ListSelfPage';
 import ProfileShowPage from './views/pages/profile/ShowPage';
 import ProfileNewPage from './views/pages/profile/NewPage';
 import NotFoundPage from './views/pages/NotFoundPage';
@@ -17,6 +18,10 @@ export default (
     <Route path="user/register" component={RegisterPage} />
     <Route path="user/login" component={LoginPage} />
     <Route path="user/logout" component={LogoutPage} />
+    <Route
+      path="profiles/self"
+      component={ProfileListSelfPage}
+      onEnter={loginRequired} />
     <Route
       path="profile/new"
       component={ProfileNewPage}

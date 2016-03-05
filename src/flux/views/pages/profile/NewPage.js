@@ -27,7 +27,7 @@ export default class NewPage extends React.Component {
       });
     ProfileAction.update(newFieldValue);
     ProfileAction.create(
-      ProfileStore.getState().profileValue,
+      ProfileStore.getState().newProfile,
       (profile) => {
         this.context.router.push(`/profile/${profile._id}`);
       }

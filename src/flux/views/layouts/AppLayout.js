@@ -68,6 +68,7 @@ export default class AppLayout extends React.Component {
 
           <div className="collapse navbar-collapse" id="navbar">
             <ul className="nav navbar-nav">
+              <NavLink to="/profiles/self">My Profiles</NavLink>
               <NavLink to="/profile/new">New Profile</NavLink>
             </ul>
 

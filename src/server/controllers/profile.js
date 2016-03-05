@@ -2,6 +2,19 @@ import Profile from '../models/Profile';
 import error, { Types } from '../utils/error';
 
 export default {
+  listSelf: (req, res) => {
+    Profile.find(
+      {
+        author: req.user._id,
+      },
+      error(Types.Db, res, (profiles) => {
+        res.json({
+          isError: false,
+          profiles: profiles,
+        });
+      })
+    );
+  },
   create: (req, res) => {
     let fields = JSON.parse(req.body.fields);
     let profile = Profile({

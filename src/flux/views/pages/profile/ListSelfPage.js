@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ProfileStore from '../../../stores/ProfileStore';
 import ProfileAction from '../../../actions/ProfileAction';
 
 @connectToStores
-export default class CreatePage extends React.Component {
+export default class ListSelfPage extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -18,17 +19,22 @@ export default class CreatePage extends React.Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.params;
-    ProfileAction.read(id);
+    ProfileAction.listSelf();
   }
 
   render() {
-    const profile = this.props.readProfile;
+    const profiles = this.props.listSelfProfile;
     return <div className="container">
-      <h1>Profile</h1>
-      <pre>
-        {JSON.stringify(profile, null, 2)}
-      </pre>
+      <h1>My Profiles</h1>
+      {profiles.map((profile, idx) =>
+        <div key={idx}>
+          <Link to={`/profile/${profile._id}`}>
+            {profile._id}
+          </Link>
+          <pre>
+            {JSON.stringify(profile.value, null, 2)}
+          </pre>
+        </div>)}
     </div>;
   }
 };

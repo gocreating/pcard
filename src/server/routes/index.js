@@ -8,6 +8,7 @@ export default ({ app }) => {
   app.post('/api/user/login', user.login);
   app.get('/api/user/logout', user.logout);
 
+  app.get('/api/profiles/self', loginRequired, profile.listSelf);
   app.post('/api/profile', loginRequired, profile.create);
   app.get('/api/profile/:id', profile.read);
 
