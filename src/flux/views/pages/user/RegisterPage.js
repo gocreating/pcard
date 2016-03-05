@@ -44,12 +44,12 @@ export default class RegisterPage extends React.Component {
 
         <Input
           ref="email"
-          label="Email"
+          label="Email*"
           placeholder="email" />
 
         <Input
           ref="password"
-          label="Password"
+          label="Password*"
           type="password"
           placeholder="password" />
 
