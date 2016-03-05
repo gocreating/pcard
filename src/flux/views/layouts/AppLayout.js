@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import activeComponent from 'react-router-active-component';
 
 export default class AppLayout extends React.Component {
   constructor(props) {
@@ -45,6 +46,7 @@ export default class AppLayout extends React.Component {
       isAuth,
       user,
     } = this.getChildContext();
+    const NavLink = activeComponent('li');
 
     return (
       <nav className="navbar navbar-default navbar-static-top">
@@ -66,16 +68,10 @@ export default class AppLayout extends React.Component {
 
           <div className="collapse navbar-collapse" id="navbar">
             <ul className="nav navbar-nav">
-              <li className="active">
-                <a href="#">Link <span className="sr-only">(current)</span></a>
-              </li>
-              <li>
-                <Link to="/profile/new">New Profile</Link>
-              </li>
+              <NavLink to="/profile/new">New Profile</NavLink>
             </ul>
 
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
               <li className="dropdown">
                 <a
                   href="#"
@@ -90,18 +86,12 @@ export default class AppLayout extends React.Component {
                 </a>
                 { !isAuth &&
                   <ul className="dropdown-menu">
-                    <li>
-                      <Link to="/user/login">Login</Link>
-                    </li>
-                    <li>
-                      <Link to="/user/register">Register</Link>
-                    </li>
+                    <NavLink to="/user/login">Login</NavLink>
+                    <NavLink to="/user/register">Register</NavLink>
                   </ul>}
                 { isAuth &&
                   <ul className="dropdown-menu">
-                    <li>
-                      <Link to="/user/logout">Logout</Link>
-                    </li>
+                    <NavLink to="/user/logout">Logout</NavLink>
                   </ul>}
               </li>
             </ul>
