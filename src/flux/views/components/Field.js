@@ -1,4 +1,5 @@
 import React from 'react';
+import objectAssign from 'object-assign';
 import ProfileStore from '../../stores/ProfileStore';
 import * as fieldComponents from './fieldComponents';
 
@@ -10,7 +11,7 @@ export default class Field extends React.Component {
 
     let initValue;
     if (type.defaultValue instanceof Object) {
-      initValue = Object.assign({},
+      initValue = objectAssign({},
         type.defaultValue,
         fieldDefinition.value);
     } else {
