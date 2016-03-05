@@ -1,5 +1,4 @@
 import path from 'path';
-import hello from '../controllers/hello';
 import user from '../controllers/user';
 import profile from '../controllers/profile';
 
