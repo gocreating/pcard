@@ -18,7 +18,11 @@ export default class LoginPage extends React.Component {
         password: this.refs.password.getValue(),
       },
       succ: (res) => {
-        location.href = '/';
+        if (res.isPass) {
+          location.href = '/';
+        } else {
+          alert('wrong email or password');
+        }
       },
       fail: (res) => {
         console.log('login fail');

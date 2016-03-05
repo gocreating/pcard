@@ -1,4 +1,5 @@
 import Profile from '../models/Profile';
+import error, { Types } from '../utils/error';
 
 export default {
   create: (req, res) => {
@@ -7,29 +8,24 @@ export default {
       author: '56d862dfa9268e7814a47fbf',
     });
     profile.value = fields;
-    profile.save((err) => {
-      if (err) {
-        return res.json({
-          isError: true,
+    profile.save(
+      error(Types.Db, res, () => {
+        res.json({
+          isError: false,
+          profile: profile,
         });
-      }
-      res.json({
-        isError: false,
-        profile: profile,
-      });
-    });
+      })
+    );
   },
   read: (req, res) => {
-    Profile.findById(req.params.id, (err, profile) => {
-      if (err) {
-        return res.json({
-          isError: true,
+    Profile.findById(
+      req.params.id,
+      error(Types.Db, res, (profile) => {
+        res.json({
+          isError: false,
+          profile: profile,
         });
-      }
-      res.json({
-        isError: false,
-        profile: profile,
-      });
-    });
+      })
+    );
   },
 };

@@ -33,13 +33,10 @@ User.methods.auth = function(cb) {
   return this
     .model('User')
     .findOne({
-      email: this.email,
+      'email.value': this.email.value,
       password: this.password,
     }, (err, user) => {
-      if (err) {
-        cb(err);
-      }
-      cb(null, !!user, user);
+      cb(err, !!user, user);
     });
 };
 
