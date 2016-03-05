@@ -1,31 +1,35 @@
-// import mongoose from 'mongoose';
 import Profile from '../models/Profile';
 
 export default {
-  testCreate: (req, res) => {
-    const profile = Profile({
+  create: (req, res) => {
+    let fields = JSON.parse(req.body.fields);
+    let profile = Profile({
       author: '56d862dfa9268e7814a47fbf',
-      identification: {
-        name: {
-          native: {
-            first: '治平',
-            last: '翁',
-          },
-        },
-      },
     });
-    profile.set({
-      'identification.passportNumber': 'test',
-    });
+    profile.value = fields;
     profile.save((err) => {
       if (err) {
-        throw err;
+        return res.json({
+          isError: true,
+        });
       }
-      res.send('Profile created!');
+      res.json({
+        isError: false,
+        profile: profile,
+      });
     });
   },
-  readSchema: (req, res) => {
-    // res.json(mongoose.model('Profile').schema.paths);
-    res.json(Profile.schema.paths);
+  read: (req, res) => {
+    Profile.findById(req.params.id, (err, profile) => {
+      if (err) {
+        return res.json({
+          isError: true,
+        });
+      }
+      res.json({
+        isError: false,
+        profile: profile,
+      });
+    });
   },
 };

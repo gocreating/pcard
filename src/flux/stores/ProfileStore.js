@@ -1,4 +1,5 @@
 import alt from '../alt';
+import apiRequest from '../utils/apiRequest';
 import FieldTypes from '../constants/FieldTypes';
 import ProfileAction from '../actions/ProfileAction';
 import ProfileSchema from '../../server/models/schemas/Profile';
@@ -6,9 +7,8 @@ import ProfileSchema from '../../server/models/schemas/Profile';
 class ProfileStore {
   constructor() {
     this.bindActions(ProfileAction);
-    console.log('ProfileSchema', ProfileSchema);
     this.state = {
-      // define the fieldType and initialValue of fields
+      // define the displaying style and value (ex: fieldType and initialValue) of fields
       fieldDefinitionMap: {
         'identification.name.native': {
           type: FieldTypes.Name,
@@ -35,6 +35,22 @@ class ProfileStore {
       },
     });
     console.log('profileValue', this.state.profileValue);
+  }
+
+  onCreate() {
+    apiRequest({
+      method: 'POST',
+      url: '/api/profile',
+      data: {
+        fields: JSON.stringify(this.state.profileValue),
+      },
+      succ: (res) => {
+        location.href = `/api/profile/${res.profile._id}`;
+      },
+      fail: (res) => {
+        console.log('create profile fail');
+      },
+    });
   }
 }
 

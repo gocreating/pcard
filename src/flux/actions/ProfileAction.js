@@ -3,7 +3,8 @@ import alt from '../alt';
 class ProfileAction {
   constructor() {
     this.generateActions(
-      'update'
+      'update',
+      'create'
     );
   }
 }

@@ -37,6 +37,7 @@ export default class CreatePage extends React.Component {
         newFieldValue[field] = this.refs[field].getValue();
       });
     ProfileAction.update(newFieldValue);
+    ProfileAction.create();
   }
 
   render() {
