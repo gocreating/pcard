@@ -24,7 +24,23 @@ class ProfileStore {
       },
       // the actual flat profile value
       profileValue: {},
+      currentProfileValue: {},
     };
+  }
+
+  onRead(id) {
+    apiRequest({
+      method: 'GET',
+      url: `/api/profile/${id}`,
+      succ: (res) => {
+        this.setState({
+          currentProfileValue: res.profile,
+        });
+      },
+      fail: (res) => {
+        console.log('read profile fail');
+      },
+    });
   }
 
   onUpdate(newProfileValue) {
@@ -37,15 +53,15 @@ class ProfileStore {
     console.log('profileValue', this.state.profileValue);
   }
 
-  onCreate() {
+  onCreate([profileValue, cb]) {
     apiRequest({
       method: 'POST',
       url: '/api/profile',
       data: {
-        fields: JSON.stringify(this.state.profileValue),
+        fields: JSON.stringify(profileValue),
       },
       succ: (res) => {
-        location.href = `/api/profile/${res.profile._id}`;
+        cb(res.profile);
       },
       fail: (res) => {
         console.log('create profile fail');

@@ -1,13 +1,10 @@
 import React from 'react';
-import mongoose from 'mongoose';
 import Field from '../../components/Field';
 import Fields from '../../components/Fields';
-import connectToStores from 'alt-utils/lib/connectToStores';
 import ProfileStore from '../../../stores/ProfileStore';
 import ProfileAction from '../../../actions/ProfileAction';
 
-@connectToStores
-export default class CreatePage extends React.Component {
+export default class NewPage extends React.Component {
   constructor(props) {
     super(props);
     this._handleSubmit = ::this._handleSubmit;
@@ -21,14 +18,6 @@ export default class CreatePage extends React.Component {
     };
   }
 
-  static getStores() {
-    return [ProfileStore];
-  }
-
-  static getPropsFromStores() {
-    return ProfileStore.getState();
-  }
-
   _handleSubmit() {
     let newFieldValue = {};
     this.state.fields
@@ -37,7 +26,12 @@ export default class CreatePage extends React.Component {
         newFieldValue[field] = this.refs[field].getValue();
       });
     ProfileAction.update(newFieldValue);
-    ProfileAction.create();
+    ProfileAction.create(
+      ProfileStore.getState().profileValue,
+      (profile) => {
+        this.context.router.push(`/profile/${profile._id}`);
+      }
+    );
   }
 
   render() {
@@ -63,4 +57,8 @@ export default class CreatePage extends React.Component {
       </Fields>
     </div>;
   }
+};
+
+NewPage.contextTypes = {
+  router: React.PropTypes.any.isRequired,
 };
