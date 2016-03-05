@@ -43,7 +43,7 @@ User.methods.auth = function(cb) {
 User.methods.toBearerToken = function(cb) {
   const token = jwt.encode({
     user: {
-      id: this._id,
+      _id: this._id,
       name: this.name,
       email: this.email,
     },

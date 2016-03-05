@@ -5,9 +5,9 @@ export default {
   create: (req, res) => {
     let fields = JSON.parse(req.body.fields);
     let profile = Profile({
-      author: '56d862dfa9268e7814a47fbf',
+      author: req.user._id,
+      value: fields,
     });
-    profile.value = fields;
     profile.save(
       error(Types.Db, res, () => {
         res.json({
