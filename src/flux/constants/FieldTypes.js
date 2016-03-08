@@ -1,4 +1,8 @@
 export default {
+  Unknown: {
+    id: 'Unknown',
+    defaultValue: '',
+  },
   String: {
     id: 'String',
     defaultValue: '',
@@ -18,6 +22,8 @@ export default {
   },
   Email: {
     id: 'Email',
-    defaultValue: [],
+    defaultValue: {
+      value: '',
+    },
   },
 };

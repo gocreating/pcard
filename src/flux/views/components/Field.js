@@ -8,15 +8,12 @@ export default class Field extends React.Component {
   constructor(props) {
     super(props);
 
-    let initValue = [];
-    let type, label, isArray;
     try {
       const { fieldDefinitionMap } = ProfileStore.getState();
       const fieldDefinition = fieldDefinitionMap[this.props.path];
-      type = fieldDefinition.type;
-      label = fieldDefinition.label;
-      isArray = fieldDefinition.isArray;
+      const { type, label, isArray } = fieldDefinition;
 
+      let initValue = [];
       if (!fieldDefinition.isArray) {
         initValue = [
           this._getComposedValue(type.defaultValue, fieldDefinition.value),
@@ -25,16 +22,21 @@ export default class Field extends React.Component {
         initValue = fieldDefinition.value.map((value) =>
           this._getComposedValue(type.defaultValue, value));
       }
-    } catch (e) {
-      valueArr = [FieldTypes.Unknown.defaultValue];
-    }
 
-    this.state = {
-      type,
-      label,
-      isArray,
-      initValue,
-    };
+      this.state = {
+        type,
+        label,
+        isArray,
+        initValue,
+      };
+    } catch (e) {
+      this.state = {
+        type: FieldTypes.Unknown,
+        label: 'Invalid Path',
+        isArray: false,
+        initValue: [FieldTypes.Unknown.defaultValue],
+      };
+    }
   }
 
   _getComposedValue(defaultValue, assignValue) {
@@ -77,15 +79,6 @@ export default class Field extends React.Component {
     } = this.state;
 
     const FieldComponent = fieldComponents[type.id];
-
-    // error control for unknown fieldtype
-    if (type.id === FieldTypes.Unknown.id || FieldComponent === undefined) {
-      return (
-        <div style={{color: 'red'}}>
-          Unknow Field: {this.props.path}
-        </div>
-      );
-    }
 
     return (
       <div>
