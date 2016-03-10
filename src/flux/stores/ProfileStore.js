@@ -21,6 +21,10 @@ class ProfileStore {
           type: FieldTypes.String,
           label: '身分證',
         },
+        'identification.passportNumber': {
+          type: FieldTypes.String,
+          label: '護照號碼',
+        },
       },
       // the actual flat profile value
       newProfile: {},

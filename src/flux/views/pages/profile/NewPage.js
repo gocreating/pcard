@@ -14,6 +14,7 @@ export default class NewPage extends React.Component {
         'identification.name.native',
         'identification.name.english',
         'identification.identityNumber',
+        'identification.passportNumber',
       ],
     };
   }
