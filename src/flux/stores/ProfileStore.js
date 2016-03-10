@@ -69,20 +69,30 @@ class ProfileStore {
     console.log('newProfile', this.state.newProfile);
   }
 
-  onCreate([newProfile, cb]) {
-    apiRequest({
-      method: 'POST',
-      url: '/api/profile',
-      data: {
-        fields: JSON.stringify(newProfile),
-      },
-      succ: (res) => {
-        cb(res.profile);
-      },
-      fail: (res) => {
-        console.log('create profile fail');
-      },
+  onClearNew() {
+    this.setState({
+      newProfile: {},
     });
+  }
+
+  onCreate([newProfile, cb]) {
+    if (JSON.stringify(newProfile) === JSON.stringify({})) {
+      console.log('nothing should be created');
+    } else {
+      apiRequest({
+        method: 'POST',
+        url: '/api/profile',
+        data: {
+          fields: JSON.stringify(newProfile),
+        },
+        succ: (res) => {
+          cb(res.profile);
+        },
+        fail: (res) => {
+          console.log('create profile fail');
+        },
+      });
+    }
   }
 }
 

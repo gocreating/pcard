@@ -18,6 +18,10 @@ export default class NewPage extends React.Component {
     };
   }
 
+  componentDidMount() {
+    ProfileAction.clearNew();
+  }
+
   _handleSubmit() {
     let newFieldValue = {};
     this.state.fields

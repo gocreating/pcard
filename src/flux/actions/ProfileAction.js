@@ -6,6 +6,7 @@ class ProfileAction {
       'listSelf',
       'read',
       'update',
+      'clearNew',
       'create'
     );
   }
