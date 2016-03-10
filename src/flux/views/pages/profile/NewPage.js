@@ -13,6 +13,7 @@ export default class NewPage extends React.Component {
       fields: [
         'identification.name.native',
         'identification.name.english',
+        'identification.email',
         'identification.identityNumber',
         'identification.passportNumber',
       ],

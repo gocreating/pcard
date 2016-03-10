@@ -17,6 +17,11 @@ class ProfileStore {
         },
         'identification.name.chinese': { type: FieldTypes.Name, label: '中文名' },
         'identification.name.english': { type: FieldTypes.Name, label: '英文名' },
+        'identification.email': {
+          type: FieldTypes.Email,
+          isArray: true,
+          label: '信箱',
+        },
         'identification.identityNumber': {
           type: FieldTypes.String,
           label: '身分證',
