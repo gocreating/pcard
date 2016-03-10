@@ -6,4 +6,6 @@ export default new mongoose.Schema({
     enum: ['UNKNOWN', 'MALE','FEMALE'],
     default: 'UNKNOWN',
   },
+}, {
+  _id: false,
 });

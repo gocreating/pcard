@@ -13,4 +13,6 @@ export default new mongoose.Schema({
       message: 'invalid email',
     },
   },
+}, {
+  _id: false,
 });
