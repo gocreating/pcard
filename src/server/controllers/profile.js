@@ -2,6 +2,9 @@ import Profile from '../models/Profile';
 import error, { Types } from '../utils/error';
 
 export default {
+  readSchema: (req, res) => {
+    res.json(Profile.schema);
+  },
   listSelf: (req, res) => {
     Profile.find(
       {
