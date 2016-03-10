@@ -1,5 +1,4 @@
 import React from 'react';
-import Input from '../Input';
 
 export default class String extends React.Component {
   componentDidMount() {
