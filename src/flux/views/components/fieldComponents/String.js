@@ -15,7 +15,7 @@ export default class String extends React.Component {
         <label className="col-sm-2 control-label">
           {this.props.label}
         </label>
-        <div className="col-sm-6">
+        <div className="col-sm-5">
           <input
             type="text"
             ref="value"

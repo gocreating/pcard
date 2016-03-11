@@ -8,15 +8,14 @@ export default class Unknown extends React.Component {
 
   render() {
     return (
-      <div className="form-group">
-        <label className="col-sm-2 control-label" style={{color: 'red'}}>
+      <div className="form-group has-error">
+        <label className="col-sm-2 control-label">
           {this.props.label}
         </label>
         <div className="col-sm-6">
           <input
             type="text"
             className="form-control"
-            style={{color: 'red'}}
             defaultValue={this.props.path}
             disabled />
         </div>
