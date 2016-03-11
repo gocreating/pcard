@@ -12,47 +12,74 @@ class ProfileStore {
       fieldDefinitionMap: {
         'identification.name.native': {
           type: FieldTypes.Name,
-          label: '本名',
-          // value: { first: 'default value' },
+          props: {
+            label: '本名',
+          },
         },
-        'identification.name.chinese': { type: FieldTypes.Name, label: '中文名' },
-        'identification.name.english': { type: FieldTypes.Name, label: '英文名' },
+        'identification.name.chinese': {
+          type: FieldTypes.Name,
+          props: {
+            label: '中文名',
+          },
+        },
+        'identification.name.english': {
+          type: FieldTypes.Name,
+          props: {
+            label: '英文名',
+          },
+        },
         'identification.email': {
           type: FieldTypes.Email,
           isArray: true,
-          label: '信箱',
+          props: {
+            label: '信箱',
+          },
         },
         'identification.identityNumber': {
           type: FieldTypes.String,
-          label: '身分證',
+          props: {
+            label: '身分證',
+          },
         },
         'identification.passportNumber': {
           type: FieldTypes.String,
-          label: '護照號碼',
+          props: {
+            label: '護照號碼',
+          },
         },
         'identification.social.facebook': {
           type: FieldTypes.SocialAccount,
-          label: 'Facebook資訊',
+          props: {
+            label: 'Facebook資訊',
+          },
         },
         'identification.social.twitter': {
           type: FieldTypes.SocialAccount,
-          label: 'Twitter資訊',
-          options: { isUsernameOnly: true },
+          props: {
+            label: 'Twitter資訊',
+            options: { isUsernameOnly: true },
+          },
         },
         'identification.social.instagram': {
           type: FieldTypes.SocialAccount,
-          label: 'Instagram資訊',
-          options: { isUsernameOnly: true },
+          props: {
+            label: 'Instagram資訊',
+            options: { isUsernameOnly: true },
+          },
         },
         'identification.social.linkedin': {
           type: FieldTypes.SocialAccount,
-          label: 'LinkedIn資訊',
-          options: { isUsernameOnly: true },
+          props: {
+            label: 'LinkedIn資訊',
+            options: { isUsernameOnly: true },
+          },
         },
         'identification.social.github': {
           type: FieldTypes.SocialAccount,
-          label: 'Github資訊',
-          options: { isUsernameOnly: true },
+          props: {
+            label: 'Github資訊',
+            options: { isUsernameOnly: true },
+          },
         },
       },
       // the actual flat profile value

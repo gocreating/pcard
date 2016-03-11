@@ -1,11 +1,15 @@
 export default {
   Unknown: {
     id: 'Unknown',
-    defaultValue: '',
+    defaultProps: {
+      label: 'Unknow Field',
+    },
   },
   String: {
     id: 'String',
-    defaultValue: '',
+    defaultProps: {
+      value: '',
+    },
   },
   Number: {
     id: 'Number',
@@ -15,22 +19,33 @@ export default {
   },
   Name: {
     id: 'Name',
-    defaultValue: {
-      first: '',
-      last: '',
+    defaultProps: {
+      value: {
+        first: '',
+        last: '',
+      },
     },
   },
   Email: {
     id: 'Email',
-    defaultValue: {
-      value: '',
+    defaultProps: {
+      label: 'Email',
+      value: {
+        value: '',
+      },
     },
   },
   SocialAccount: {
     id: 'SocialAccount',
-    defaultValue: {
-      id: '',
-      username: '',
+    defaultProps: {
+      label: 'Social Info',
+      value: {
+        id: '',
+        username: '',
+      },
+      options: {
+        isUsernameOnly: false,
+      },
     },
   },
 };

@@ -35,9 +35,3 @@ export default class SocialAccount extends React.Component {
     );
   }
 };
-
-SocialAccount.defaultProps = {
-  options: {
-    isUsernameOnly: false,
-  },
-};

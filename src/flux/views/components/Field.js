@@ -1,6 +1,7 @@
 import React from 'react';
 import getUid from '../../utils/getUid';
 import getComposedValue from '../../utils/getComposedValue';
+import _ from 'lodash';
 import FieldTypes from '../../constants/FieldTypes';
 import ProfileStore from '../../stores/ProfileStore';
 import * as fieldComponents from './fieldComponents';
@@ -12,49 +13,55 @@ export default class Field extends React.Component {
     try {
       const { fieldDefinitionMap } = ProfileStore.getState();
       const fieldDefinition = fieldDefinitionMap[this.props.path];
-      const { type, label, isArray, options } = fieldDefinition;
+      const { type, isArray, props } = fieldDefinition;
 
-      let initValue = [];
+      let initValueArr = [];
       if (!fieldDefinition.isArray) {
-        initValue = [{
+        initValueArr = [{
           id: getUid(),
-          value:
-            getComposedValue(type.defaultValue, fieldDefinition.value),
+          props:
+            _.merge({}, type.defaultProps, props),
         },];
       } else {
-        if (fieldDefinition.value === undefined ||
-            fieldDefinition.value.length === 0) {
-          initValue = [{
+        if (props === undefined ||
+            props.value === undefined ||
+            props.value === []) {
+          initValueArr = [{
             id: getUid(),
-            value: type.defaultValue,
+            props: type.defaultProps,
           },];
         } else {
-          initValue = fieldDefinition.value.map((value) =>
+          initValueArr = props.value.map((value) =>
             ({
               id: getUid(),
-              value: getComposedValue(type.defaultValue, value),
+              props: {
+                ..._.merge({}, type.defaultProps, props),
+                value: _.merge({}, type.defaultProps.value, value),
+              },
             }));
         }
       }
 
       this.state = {
         type,
-        label,
         isArray,
-        initValue,
-        currentValue: initValue,
-        options,
+        props,
+        initValueArr,
+        currentValueArr: initValueArr,
       };
     } catch (e) {
       console.error(
         `Cannot render \`${this.props.path}\`. See error message:`, e);
+      const valueArr = [{
+        id: getUid(),
+        props: FieldTypes.Unknown.defaultProps,
+      },];
       this.state = {
         type: FieldTypes.Unknown,
-        label: 'Invalid Path',
         isArray: false,
-        initValue: [FieldTypes.Unknown.defaultValue],
-        currentValue: [FieldTypes.Unknown.defaultValue],
-        options: {},
+        props: FieldTypes.Unknown.defaultProps,
+        initValueArr: valueArr,
+        currentValueArr: valueArr,
       };
     }
   }
@@ -62,36 +69,42 @@ export default class Field extends React.Component {
   /* public methods */
 
   isDirty() {
-    const currentValue = this._getCurrentValue();
-    const { initValue } = this.state;
+    const currentValue = this._getCurrentValue()
+      .map((cv) => cv.props.value);
+    const initValue = this.state.initValueArr
+      .map((iv) => iv.props.value);
     return JSON.stringify(currentValue) !== JSON.stringify(initValue);
   }
 
   getValue() {
-    const valueArr = this.state.currentValue.map((value, idx) =>
-      this.refs[value.id].getValue());
+    const valueArr = this.state.currentValueArr.map((cv, idx) =>
+      this.refs[cv.id].getValue());
     return this.state.isArray? valueArr: valueArr[0];
   }
 
   /* private methods */
 
   _getCurrentValue() {
-    return this.state.currentValue.map((cv, idx) => ({
-      id: cv.id,
-      value: this.refs[cv.id].getValue(),
-    }));
+    return this.state.currentValueArr.map((cv, idx) =>
+      _.merge({}, cv, {
+        props: {
+          value: this.refs[cv.id].getValue(),
+        },
+      }));
   }
 
   _addSelf(idx) {
-    const { initValue } = this.state;
     const v = this._getCurrentValue();
-
+    const { type, props } = this.state;
     this.setState({
-      currentValue: [
+      currentValueArr: [
         ...v.slice(0, idx + 1),
         {
           id: getUid(),
-          value: this.state.type.defaultValue,
+          props: {
+            ..._.merge({}, type.defaultProps, props),
+            value: type.defaultProps.value,
+          },
         },
         ...v.slice(idx + 1),
       ],
@@ -99,11 +112,9 @@ export default class Field extends React.Component {
   }
 
   _removeSelf(idx) {
-    const { initValue } = this.state;
     const v = this._getCurrentValue();
-
     this.setState({
-      currentValue: [
+      currentValueArr: [
         ...v.slice(0, idx),
         ...v.slice(idx + 1),
       ],
@@ -121,7 +132,7 @@ export default class Field extends React.Component {
           +
         </button>
 
-        {this.state.isArray && this.state.currentValue.length > 1 &&
+        {this.state.isArray && this.state.currentValueArr.length > 1 &&
           <button
             type="button"
             className="pull-left close"
@@ -136,25 +147,21 @@ export default class Field extends React.Component {
   render() {
     const {
       type,
-      label,
       isArray,
-      currentValue,
-      options,
+      currentValueArr,
     } = this.state;
     const FieldComponent = fieldComponents[type.id];
 
     return (
       <div>
-        {currentValue.map((value, idx) =>
+        {currentValueArr.map((currentValue, idx) =>
           <FieldComponent
-            key={value.id}
-            ref={value.id}
-            label={label}
-            isShowLabel={idx === 0}
-            value={value.value}
-            options={options}
+            key={currentValue.id}
+            ref={currentValue.id}
             Toolbar={this._renderChildToolbar(idx)}
-            {...this.props} />)}
+            path={this.props.path}
+            isShowLabel={idx === 0}
+            {...currentValue.props} />)}
       </div>
     );
   }
