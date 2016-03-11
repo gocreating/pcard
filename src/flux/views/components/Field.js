@@ -28,7 +28,9 @@ export default class Field extends React.Component {
             props.value === []) {
           initValueArr = [{
             id: getUid(),
-            props: type.defaultProps,
+            props: {
+              ..._.merge({}, type.defaultProps, props),
+            },
           },];
         } else {
           initValueArr = props.value.map((value) =>
@@ -36,7 +38,8 @@ export default class Field extends React.Component {
               id: getUid(),
               props: {
                 ..._.merge({}, type.defaultProps, props),
-                value: _.merge({}, type.defaultProps.value, value),
+                // use redundant key `r` to make string type value mergable
+                value: _.merge({}, {r: type.defaultProps.value}, {r: value}).r,
               },
             }));
         }
