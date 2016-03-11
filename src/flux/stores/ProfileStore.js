@@ -81,6 +81,12 @@ class ProfileStore {
             options: { isUsernameOnly: true },
           },
         },
+        'basic.relationToAuthor': {
+          type: FieldTypes.Unknown,
+          props: {
+            label: '與我的關係',
+          },
+        },
         'basic.nickname': {
           type: FieldTypes.String,
           isArray: true,

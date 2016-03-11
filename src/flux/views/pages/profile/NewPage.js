@@ -21,6 +21,7 @@ export default class NewPage extends React.Component {
         'identification.social.instagram',
         'identification.social.linkedin',
         'identification.social.github',
+        'basic.relationToAuthor',
         'basic.nickname',
         'basic.gender',
       ],
