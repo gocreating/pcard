@@ -81,6 +81,13 @@ class ProfileStore {
             options: { isUsernameOnly: true },
           },
         },
+        'basic.nickname': {
+          type: FieldTypes.String,
+          isArray: true,
+          props: {
+            label: '暱稱',
+          },
+        },
         'basic.gender': {
           type: FieldTypes.Gender,
           props: {
