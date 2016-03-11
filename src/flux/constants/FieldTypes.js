@@ -8,6 +8,7 @@ export default {
   String: {
     id: 'String',
     defaultProps: {
+      label: 'String',
       value: '',
     },
   },
