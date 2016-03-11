@@ -26,4 +26,11 @@ export default {
       value: '',
     },
   },
+  SocialAccount: {
+    id: 'SocialAccount',
+    defaultValue: {
+      id: '',
+      username: '',
+    },
+  },
 };

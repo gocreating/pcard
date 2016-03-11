@@ -16,6 +16,11 @@ export default class NewPage extends React.Component {
         'identification.email',
         'identification.identityNumber',
         'identification.passportNumber',
+        'identification.social.facebook',
+        'identification.social.twitter',
+        'identification.social.instagram',
+        'identification.social.linkedin',
+        'identification.social.github',
       ],
     };
   }

@@ -30,6 +30,30 @@ class ProfileStore {
           type: FieldTypes.String,
           label: '護照號碼',
         },
+        'identification.social.facebook': {
+          type: FieldTypes.SocialAccount,
+          label: 'Facebook資訊',
+        },
+        'identification.social.twitter': {
+          type: FieldTypes.SocialAccount,
+          label: 'Twitter資訊',
+          options: { isUsernameOnly: true },
+        },
+        'identification.social.instagram': {
+          type: FieldTypes.SocialAccount,
+          label: 'Instagram資訊',
+          options: { isUsernameOnly: true },
+        },
+        'identification.social.linkedin': {
+          type: FieldTypes.SocialAccount,
+          label: 'LinkedIn資訊',
+          options: { isUsernameOnly: true },
+        },
+        'identification.social.github': {
+          type: FieldTypes.SocialAccount,
+          label: 'Github資訊',
+          options: { isUsernameOnly: true },
+        },
       },
       // the actual flat profile value
       newProfile: {},

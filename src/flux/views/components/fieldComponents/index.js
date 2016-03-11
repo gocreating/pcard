@@ -9,3 +9,6 @@ export { _String as String };
 
 import _Email from './Email';
 export { _Email as Email };
+
+import _SocialAccount from './SocialAccount';
+export { _SocialAccount as SocialAccount };

@@ -12,7 +12,7 @@ export default class Field extends React.Component {
     try {
       const { fieldDefinitionMap } = ProfileStore.getState();
       const fieldDefinition = fieldDefinitionMap[this.props.path];
-      const { type, label, isArray } = fieldDefinition;
+      const { type, label, isArray, options } = fieldDefinition;
 
       let initValue = [];
       if (!fieldDefinition.isArray) {
@@ -43,6 +43,7 @@ export default class Field extends React.Component {
         isArray,
         initValue,
         currentValue: initValue,
+        options,
       };
     } catch (e) {
       console.error(
@@ -53,6 +54,7 @@ export default class Field extends React.Component {
         isArray: false,
         initValue: [FieldTypes.Unknown.defaultValue],
         currentValue: [FieldTypes.Unknown.defaultValue],
+        options: {},
       };
     }
   }
@@ -137,6 +139,7 @@ export default class Field extends React.Component {
       label,
       isArray,
       currentValue,
+      options,
     } = this.state;
     const FieldComponent = fieldComponents[type.id];
 
@@ -149,6 +152,7 @@ export default class Field extends React.Component {
             label={label}
             isShowLabel={idx === 0}
             value={value.value}
+            options={options}
             Toolbar={this._renderChildToolbar(idx)}
             {...this.props} />)}
       </div>
