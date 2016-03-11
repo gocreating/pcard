@@ -106,6 +106,12 @@ class ProfileStore {
             label: '星座',
           },
         },
+        'basic.chineseHoroscope': {
+          type: FieldTypes.ChineseHoroscope,
+          props: {
+            label: '生肖',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

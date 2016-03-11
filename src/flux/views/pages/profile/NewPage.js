@@ -25,6 +25,7 @@ export default class NewPage extends React.Component {
         'basic.nickname',
         'basic.gender',
         'basic.horoscope',
+        'basic.chineseHoroscope',
       ],
     };
   }

@@ -87,4 +87,28 @@ export default {
       },
     },
   },
+  ChineseHoroscope: {
+    id: 'Enum',
+    defaultProps: {
+      label: 'Chinese Horoscope',
+      enum: [
+        { label: '未知', value: 'UNKNOWN' },
+        { label: '鼠', value: 'RAT' },
+        { label: '牛', value: 'OX' },
+        { label: '虎', value: 'TIGER' },
+        { label: '兔', value: 'HARE' },
+        { label: '龍', value: 'DRAGON ' },
+        { label: '蛇', value: 'SNAKE' },
+        { label: '馬', value: 'HORSE' },
+        { label: '羊', value: 'SHEEP' },
+        { label: '猴', value: 'MONKEY' },
+        { label: '雞', value: 'COCK' },
+        { label: '狗', value: 'DOG' },
+        { label: '猪', value: 'BOAR' },
+      ],
+      value: {
+        value: 'UNKNOWN',
+      },
+    },
+  },
 };

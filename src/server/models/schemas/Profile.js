@@ -24,5 +24,6 @@ export default new mongoose.Schema({
     nickname: [String],
     gender: Types.Gender,
     horoscope: Types.Horoscope,
+    chineseHoroscope: Types.ChineseHoroscope,
   },
 });

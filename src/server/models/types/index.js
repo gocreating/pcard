@@ -12,3 +12,6 @@ export { _Gender as Gender };
 
 import _Horoscope from './Horoscope';
 export { _Horoscope as Horoscope };
+
+import _ChineseHoroscope from './ChineseHoroscope';
+export { _ChineseHoroscope as ChineseHoroscope };
