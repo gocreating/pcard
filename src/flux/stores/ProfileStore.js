@@ -103,6 +103,10 @@ class ProfileStore {
   }
 
   onClearNew() {
+    this._clearNew();
+  }
+
+  _clearNew() {
     this.setState({
       newProfile: {},
     });
@@ -122,6 +126,7 @@ class ProfileStore {
           cb(res.profile);
         },
         fail: (res) => {
+          this._clearNew();
           console.log('create profile fail');
         },
       });
