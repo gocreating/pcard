@@ -48,4 +48,18 @@ export default {
       },
     },
   },
+  Gender: {
+    id: 'Enum',
+    defaultProps: {
+      label: 'Gender',
+      enum: [
+        { label: '未知', value: 'UNKNOWN' },
+        { label: '男', value: 'MALE' },
+        { label: '女', value: 'FEMALE' },
+      ],
+      value: {
+        value: 'UNKNOWN',
+      },
+    },
+  },
 };

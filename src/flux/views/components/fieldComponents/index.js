@@ -12,3 +12,6 @@ export { _Email as Email };
 
 import _SocialAccount from './SocialAccount';
 export { _SocialAccount as SocialAccount };
+
+import _Enum from './Enum';
+export { _Enum as Enum };

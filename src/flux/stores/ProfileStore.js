@@ -81,6 +81,12 @@ class ProfileStore {
             options: { isUsernameOnly: true },
           },
         },
+        'basic.gender': {
+          type: FieldTypes.Gender,
+          props: {
+            label: '性別',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},
