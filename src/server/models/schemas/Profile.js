@@ -23,5 +23,6 @@ export default new mongoose.Schema({
     relationToAuthor: String,
     nickname: [String],
     gender: Types.Gender,
+    horoscope: Types.Horoscope,
   },
 });

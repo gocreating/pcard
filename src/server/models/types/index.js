@@ -9,3 +9,6 @@ export { _SocialAccount as SocialAccount };
 
 import _Gender from './Gender';
 export { _Gender as Gender };
+
+import _Horoscope from './Horoscope';
+export { _Horoscope as Horoscope };

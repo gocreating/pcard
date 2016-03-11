@@ -100,6 +100,12 @@ class ProfileStore {
             label: '性別',
           },
         },
+        'basic.horoscope': {
+          type: FieldTypes.Horoscope,
+          props: {
+            label: '星座',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

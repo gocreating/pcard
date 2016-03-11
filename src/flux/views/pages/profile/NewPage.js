@@ -24,6 +24,7 @@ export default class NewPage extends React.Component {
         'basic.relationToAuthor',
         'basic.nickname',
         'basic.gender',
+        'basic.horoscope',
       ],
     };
   }
