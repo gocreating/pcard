@@ -53,16 +53,28 @@ export default ({ app }) => {
   app.use(favicon(path.join(__dirname, '../../public/img/favicon.ico')));
 
   // log request
-  app.use(morgan(
-    '\x1b[1;30m' + '[:date[iso]] ' +
-    '\x1b[0m'    + ':remote-addr\t' +
-                   ':colorStatus ' +
-                   ':method ' +
-                   ':url\t' +
-    '\x1b[0m'    + ':res[content-length] - ' +
-    '\x1b[0;36m' + ':response-time ms' +
-    '\x1b[0m'
-  ));
+  if (app.get('env') === 'development') {
+    app.use(morgan(
+      '\x1b[1;30m' + '[:date[iso]] ' +
+      '\x1b[0m'    + ':remote-addr\t' +
+                     ':colorStatus ' +
+                     ':method ' +
+                     ':url\t' +
+      '\x1b[0m'    + ':res[content-length] - ' +
+      '\x1b[0;36m' + ':response-time ms' +
+      '\x1b[0m'
+    ));
+  } else {
+    app.use(morgan(
+      '[:date[iso]] ' +
+      ':remote-addr\t' +
+      ':status ' +
+      ':method ' +
+      ':url\t' +
+      ':res[content-length] - ' +
+      ':response-time ms'
+    ));
+  }
 
   // static files
   app.use(express.static(
