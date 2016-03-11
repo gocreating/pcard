@@ -1,10 +1,6 @@
 import React from 'react';
 
 export default class String extends React.Component {
-  componentDidMount() {
-    this.refs.value.value = this.props.value;
-  }
-
   getValue() {
     return this.refs.value.value;
   }
@@ -19,6 +15,7 @@ export default class String extends React.Component {
           <input
             type="text"
             ref="value"
+            defaultValue={this.props.value}
             className="form-control" />
         </div>
       </div>

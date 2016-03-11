@@ -1,11 +1,6 @@
 import React from 'react';
 
 export default class Name extends React.Component {
-  componentDidMount() {
-    this.refs.first.value = this.props.value.first;
-    this.refs.last.value = this.props.value.last;
-  }
-
   getValue() {
     return {
       first: this.refs.first.value,
@@ -23,6 +18,7 @@ export default class Name extends React.Component {
           <input
             type="text"
             ref="first"
+            defaultValue={this.props.value.first}
             className="form-control"
             placeholder="First" />
         </div>
@@ -30,6 +26,7 @@ export default class Name extends React.Component {
           <input
             type="text"
             ref="last"
+            defaultValue={this.props.value.last}
             className="form-control"
             placeholder="Last" />
         </div>
