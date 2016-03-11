@@ -21,7 +21,7 @@ export default new mongoose.Schema({
   },
   basic: {
     relationToAuthor: String,
-    nickName: [String],
+    nickname: [String],
     gender: Types.Gender,
   },
 });
