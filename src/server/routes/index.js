@@ -12,6 +12,7 @@ export default ({ app }) => {
   app.get('/api/profiles/self', loginRequired, profile.listSelf);
   app.post('/api/profile', loginRequired, profile.create);
   app.get('/api/profile/:id', profile.read);
+  app.delete('/api/profile/:id', profile.delete);
 
   app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, '../../public/template/index.html'));

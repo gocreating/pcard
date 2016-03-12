@@ -44,4 +44,14 @@ export default {
       })
     );
   },
+  delete: (req, res) => {
+    Profile.remove(
+      { _id: req.params.id },
+      error(Types.Db, res, () => {
+        res.json({
+          isError: false,
+        });
+      })
+    );
+  },
 };

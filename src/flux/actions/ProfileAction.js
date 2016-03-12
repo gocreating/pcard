@@ -7,7 +7,8 @@ class ProfileAction {
       'read',
       'update',
       'clearNew',
-      'create'
+      'create',
+      'delete'
     );
   }
 }

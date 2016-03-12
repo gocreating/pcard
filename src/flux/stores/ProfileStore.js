@@ -190,6 +190,19 @@ class ProfileStore {
       });
     }
   }
+
+  onDelete([id, cb]) {
+    apiRequest({
+      method: 'DELETE',
+      url: `/api/profile/${id}`,
+      succ: (res) => {
+        cb();
+      },
+      fail: (res) => {
+        console.log('delete profile fail');
+      },
+    });
+  }
 }
 
 export default alt.createStore(ProfileStore, 'ProfileStore');

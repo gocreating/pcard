@@ -4,10 +4,7 @@ import ProfileStore from '../../../stores/ProfileStore';
 import ProfileAction from '../../../actions/ProfileAction';
 
 @connectToStores
-export default class CreatePage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export default class ShowPage extends React.Component {
   static contextTypes = {
     router: React.PropTypes.any.isRequired,
   };
@@ -20,9 +17,21 @@ export default class CreatePage extends React.Component {
     return ProfileStore.getState();
   }
 
+  constructor(props) {
+    super(props);
+    this._btnDeleteClick = ::this._btnDeleteClick;
+  }
+
   componentDidMount() {
     const { id } = this.props.params;
     ProfileAction.read(id);
+  }
+
+  _btnDeleteClick(e) {
+    const { id } = this.props.params;
+    ProfileAction.delete(id, () => {
+      this.context.router.push('/profiles/self');
+    });
   }
 
   render() {
