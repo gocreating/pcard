@@ -8,6 +8,9 @@ export default class CreatePage extends React.Component {
   constructor(props) {
     super(props);
   }
+  static contextTypes = {
+    router: React.PropTypes.any.isRequired,
+  };
 
   static getStores() {
     return [ProfileStore];

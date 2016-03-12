@@ -5,6 +5,10 @@ import ProfileStore from '../../../stores/ProfileStore';
 import ProfileAction from '../../../actions/ProfileAction';
 
 export default class NewPage extends React.Component {
+  static contextTypes = {
+    router: React.PropTypes.any.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this._handleSubmit = ::this._handleSubmit;
@@ -73,8 +77,4 @@ export default class NewPage extends React.Component {
       </Fields>
     </div>;
   }
-};
-
-NewPage.contextTypes = {
-  router: React.PropTypes.any.isRequired,
 };
