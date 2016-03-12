@@ -6,10 +6,6 @@ import ProfileAction from '../../../actions/ProfileAction';
 
 @connectToStores
 export default class ListSelfPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   static getStores() {
     return [ProfileStore];
   }
