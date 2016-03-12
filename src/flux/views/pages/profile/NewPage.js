@@ -56,7 +56,9 @@ export default class NewPage extends React.Component {
 
   render() {
     return <div className="container">
-      <h1>New Profile</h1>
+      <div className="page-header">
+        <h1>New Profile</h1>
+      </div>
       <Fields>
         {this.state.fields.map((field, idx) =>
           <Field

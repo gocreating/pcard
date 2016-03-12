@@ -21,7 +21,11 @@ export default class ListSelfPage extends React.Component {
   render() {
     const profiles = this.props.listSelfProfile;
     return <div className="container">
-      <h1>My Profiles</h1>
+      <div className="page-header">
+        <h1>My Profiles</h1>
+      </div>
+      {profiles.length === 0 &&
+        'There is no profile.'}
       {profiles.map((profile, idx) =>
         <div key={idx}>
           <Link to={`/profile/${profile._id}`}>
