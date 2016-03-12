@@ -127,4 +127,10 @@ export default {
       },
     },
   },
+  Number: {
+    id: 'Number',
+    defaultProps: {
+      label: 'Number',
+    },
+  },
 };

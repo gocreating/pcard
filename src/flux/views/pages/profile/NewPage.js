@@ -31,6 +31,8 @@ export default class NewPage extends React.Component {
         'basic.horoscope',
         'basic.chineseHoroscope',
         'basic.bloodType',
+        'basic.height',
+        'basic.weight',
       ],
     };
   }

@@ -7,6 +7,9 @@ export { _Name as Name };
 import _String from './String';
 export { _String as String };
 
+import _Number from './Number';
+export { _Number as Number };
+
 import _Email from './Email';
 export { _Email as Email };
 

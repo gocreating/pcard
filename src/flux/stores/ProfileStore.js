@@ -118,6 +118,26 @@ class ProfileStore {
             label: '血型',
           },
         },
+        'basic.height': {
+          type: FieldTypes.Number,
+          props: {
+            label: '身高',
+            min: 10.0,
+            max: 250.0,
+            step: 0.1,
+            postfix: '公分',
+          },
+        },
+        'basic.weight': {
+          type: FieldTypes.Number,
+          props: {
+            label: '體重',
+            min: 0.0,
+            max: 250.0,
+            step: 0.1,
+            postfix: '公斤',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

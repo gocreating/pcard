@@ -26,5 +26,7 @@ export default new mongoose.Schema({
     horoscope: Types.Horoscope,
     chineseHoroscope: Types.ChineseHoroscope,
     bloodType: Types.BloodType,
+    height: Number,
+    weight: Number,
   },
 });
