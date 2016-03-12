@@ -112,6 +112,12 @@ class ProfileStore {
             label: '生肖',
           },
         },
+        'basic.bloodType': {
+          type: FieldTypes.BloodType,
+          props: {
+            label: '血型',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

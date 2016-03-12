@@ -111,4 +111,20 @@ export default {
       },
     },
   },
+  BloodType: {
+    id: 'Enum',
+    defaultProps: {
+      label: 'Blood Type',
+      enum: [
+        { label: '未知', value: 'UNKNOWN' },
+        { label: 'A', value: 'A' },
+        { label: 'B', value: 'B' },
+        { label: 'AB', value: 'AB' },
+        { label: 'O', value: 'O' },
+      ],
+      value: {
+        value: 'UNKNOWN',
+      },
+    },
+  },
 };

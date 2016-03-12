@@ -15,3 +15,6 @@ export { _Horoscope as Horoscope };
 
 import _ChineseHoroscope from './ChineseHoroscope';
 export { _ChineseHoroscope as ChineseHoroscope };
+
+import _BloodType from './BloodType';
+export { _BloodType as BloodType };

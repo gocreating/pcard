@@ -30,6 +30,7 @@ export default class NewPage extends React.Component {
         'basic.gender',
         'basic.horoscope',
         'basic.chineseHoroscope',
+        'basic.bloodType',
       ],
     };
   }

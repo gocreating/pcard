@@ -25,5 +25,6 @@ export default new mongoose.Schema({
     gender: Types.Gender,
     horoscope: Types.Horoscope,
     chineseHoroscope: Types.ChineseHoroscope,
+    bloodType: Types.BloodType,
   },
 });
