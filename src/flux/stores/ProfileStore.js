@@ -145,6 +145,13 @@ class ProfileStore {
             label: '電話',
           },
         },
+        'basic.website': {
+          type: FieldTypes.String,
+          isArray: true,
+          props: {
+            label: '個人網站',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

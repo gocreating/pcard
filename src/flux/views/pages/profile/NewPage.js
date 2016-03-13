@@ -34,6 +34,7 @@ export default class NewPage extends React.Component {
         'basic.height',
         'basic.weight',
         'basic.phone',
+        'basic.website',
       ],
     };
   }

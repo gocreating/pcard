@@ -29,5 +29,6 @@ export default new mongoose.Schema({
     height: Number,
     weight: Number,
     phone: [String],
+    website: [String],
   },
 });
