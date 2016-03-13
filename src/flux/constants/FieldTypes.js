@@ -133,4 +133,16 @@ export default {
       label: 'Number',
     },
   },
+  Language: {
+    id: 'Enum',
+    defaultProps: {
+      label: 'Language',
+      isMultiple: true,
+      enum: [
+        { label: '中文', value: 'CHINESE' },
+        { label: '英文', value: 'ENGLISH' },
+      ],
+      value: [],
+    },
+  },
 };

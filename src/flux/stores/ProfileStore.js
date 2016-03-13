@@ -158,6 +158,12 @@ class ProfileStore {
             label: '大頭貼',
           },
         },
+        'basic.language': {
+          type: FieldTypes.Language,
+          props: {
+            label: '語言',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

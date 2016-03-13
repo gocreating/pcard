@@ -36,6 +36,7 @@ export default class NewPage extends React.Component {
         'basic.phone',
         'basic.website',
         'basic.avatar',
+        'basic.language',
       ],
     };
   }

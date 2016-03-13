@@ -18,3 +18,6 @@ export { _ChineseHoroscope as ChineseHoroscope };
 
 import _BloodType from './BloodType';
 export { _BloodType as BloodType };
+
+import _Language from './Language';
+export { _Language as Language };

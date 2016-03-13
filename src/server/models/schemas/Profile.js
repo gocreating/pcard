@@ -31,5 +31,6 @@ export default new mongoose.Schema({
     phone: [String],
     website: [String],
     avatar: String,
+    language: [Types.Language],
   },
 });
