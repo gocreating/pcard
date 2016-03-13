@@ -33,6 +33,7 @@ export default class NewPage extends React.Component {
         'basic.bloodType',
         'basic.height',
         'basic.weight',
+        'basic.phone',
       ],
     };
   }

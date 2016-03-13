@@ -28,5 +28,6 @@ export default new mongoose.Schema({
     bloodType: Types.BloodType,
     height: Number,
     weight: Number,
+    phone: [String],
   },
 });

@@ -138,6 +138,13 @@ class ProfileStore {
             postfix: '公斤',
           },
         },
+        'basic.phone': {
+          type: FieldTypes.String,
+          isArray: true,
+          props: {
+            label: '電話',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},
