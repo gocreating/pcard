@@ -152,6 +152,12 @@ class ProfileStore {
             label: '個人網站',
           },
         },
+        'basic.avatar': {
+          type: FieldTypes.Unknown,
+          props: {
+            label: '大頭貼',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},
