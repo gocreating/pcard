@@ -170,6 +170,12 @@ class ProfileStore {
             label: '宗教信仰',
           },
         },
+        'basic.politics': {
+          type: FieldTypes.String,
+          props: {
+            label: '政治立場',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

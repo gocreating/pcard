@@ -33,5 +33,6 @@ export default new mongoose.Schema({
     avatar: String,
     language: [Types.Language],
     religion: String,
+    politics: String,
   },
 });
