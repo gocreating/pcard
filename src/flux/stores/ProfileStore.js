@@ -176,6 +176,12 @@ class ProfileStore {
             label: '政治立場',
           },
         },
+        'basic.loveAptitude': {
+          type: FieldTypes.Gender,
+          props: {
+            label: '戀愛性向',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},
