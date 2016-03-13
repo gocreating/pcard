@@ -164,6 +164,12 @@ class ProfileStore {
             label: '語言',
           },
         },
+        'basic.religion': {
+          type: FieldTypes.String,
+          props: {
+            label: '宗教信仰',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

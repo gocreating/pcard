@@ -32,5 +32,6 @@ export default new mongoose.Schema({
     website: [String],
     avatar: String,
     language: [Types.Language],
+    religion: String,
   },
 });
