@@ -40,6 +40,7 @@ export default class NewPage extends React.Component {
         'basic.religion',
         'basic.politics',
         'basic.loveAptitude',
+        'basic.birthday',
       ],
     };
   }

@@ -35,5 +35,6 @@ export default new mongoose.Schema({
     religion: String,
     politics: String,
     loveAptitude: Types.Gender,
+    birthday: Types.Datetime,
   },
 });

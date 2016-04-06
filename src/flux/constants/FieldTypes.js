@@ -145,4 +145,18 @@ export default {
       value: [],
     },
   },
+  Datetime: {
+    id: 'Datetime',
+    defaultProps: {
+      label: 'Datetime',
+      value: {
+        year: '',
+        month: '',
+        day: '',
+        hour: '',
+        minute: '',
+        second: '',
+      },
+    },
+  },
 };

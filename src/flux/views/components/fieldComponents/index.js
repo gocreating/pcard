@@ -18,3 +18,6 @@ export { _SocialAccount as SocialAccount };
 
 import _Enum from './Enum';
 export { _Enum as Enum };
+
+import _Datetime from './Datetime';
+export { _Datetime as Datetime };

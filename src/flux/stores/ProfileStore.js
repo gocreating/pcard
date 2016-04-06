@@ -182,6 +182,12 @@ class ProfileStore {
             label: '戀愛性向',
           },
         },
+        'basic.birthday': {
+          type: FieldTypes.Datetime,
+          props: {
+            label: '生日',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

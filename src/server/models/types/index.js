@@ -21,3 +21,6 @@ export { _BloodType as BloodType };
 
 import _Language from './Language';
 export { _Language as Language };
+
+import _Datetime from './Datetime';
+export { _Datetime as Datetime };
