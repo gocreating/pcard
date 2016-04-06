@@ -188,6 +188,20 @@ class ProfileStore {
             label: '生日',
           },
         },
+        'basic.hometownAddress': {
+          type: FieldTypes.String,
+          isArray: true,
+          props: {
+            label: '家鄉住址',
+          },
+        },
+        'basic.livingAddress': {
+          type: FieldTypes.String,
+          isArray: true,
+          props: {
+            label: '居住地住址',
+          },
+        },
       },
       // the actual flat profile value
       newProfile: {},

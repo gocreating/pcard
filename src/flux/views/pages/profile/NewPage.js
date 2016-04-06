@@ -41,6 +41,8 @@ export default class NewPage extends React.Component {
         'basic.politics',
         'basic.loveAptitude',
         'basic.birthday',
+        'basic.hometownAddress',
+        'basic.livingAddress',
       ],
     };
   }

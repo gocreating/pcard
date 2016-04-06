@@ -36,5 +36,7 @@ export default new mongoose.Schema({
     politics: String,
     loveAptitude: Types.Gender,
     birthday: Types.Datetime,
+    hometownAddress: [String],
+    livingAddress: [String],
   },
 });
