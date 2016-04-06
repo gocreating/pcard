@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-export default class String extends React.Component {
+export default class Enum extends React.Component {
   getValue() {
     if (this.props.isMultiple) {
       const node = ReactDOM.findDOMNode(this.refs.value);
